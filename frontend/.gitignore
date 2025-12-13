@@ -1,0 +1,52 @@
+# --- Dependencies ---
+node_modules/
+backend/node_modules/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+backend/*.log
+
+# --- Testing ---
+coverage/
+backend/coverage/
+
+# --- Next.js Build ---
+.next/
+out/
+
+# --- Build Artifacts ---
+build/
+backend/build/
+backend/dist/
+
+# --- Environment Files ---
+.env*
+backend/.env
+backend/.env.*
+
+# --- Vercel ---
+.vercel/
+
+# --- Misc ---
+.DS_Store
+*.pem
+
+# --- IDE Config ---
+.vscode/
+.idea/
+backend/.vscode/
+backend/.idea/
+
+# --- TypeScript ---
+*.tsbuildinfo
+next-env.d.ts
