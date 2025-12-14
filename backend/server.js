@@ -23,14 +23,26 @@ app.use(express.json());
 // Enable CORS for frontend
 app.use(
   cors({
-    origin: [
-      "http://localhost:3000",
-      "https://hmsfrontend-nine-lime.vercel.app"
-    ],
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    origin: (origin, callback) => {
+      // allow server-to-server requests (Postman, etc.)
+      if (!origin) return callback(null, true);
+
+      // allow ALL Vercel deployments (production + preview)
+      if (origin.endsWith(".vercel.app")) {
+        return callback(null, true);
+      }
+
+      // allow local development
+      if (origin === "http://localhost:3000") {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Not allowed by CORS"));
+    },
     credentials: true
   })
 );
+
 
 // -----------------------------
 // Routes
