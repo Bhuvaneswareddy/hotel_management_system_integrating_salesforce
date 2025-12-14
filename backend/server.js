@@ -21,11 +21,18 @@ app.use(express.json());
 
 
 // Enable CORS for frontend
-app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET','POST','PUT','PATCH','DELETE'],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://hmsfrontend-nine-lime.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    credentials: true
+  })
+);
+// ✅ Preflight support
+app.options("*", cors());
 
 // -----------------------------
 // Routes
