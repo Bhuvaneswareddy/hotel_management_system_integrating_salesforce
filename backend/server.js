@@ -31,8 +31,6 @@ app.use(
     credentials: true
   })
 );
-// ✅ Preflight support
-app.options("*", cors());
 
 // -----------------------------
 // Routes
